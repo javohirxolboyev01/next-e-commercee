@@ -8,6 +8,8 @@ export interface IProduct {
   discountPercentage: number;
   discountedPrice: number;
   brand: string;
+  rating:number
+  description:string
 }
 export interface ICart {
   id: number;

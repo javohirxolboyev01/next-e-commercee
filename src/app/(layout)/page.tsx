@@ -1,3 +1,5 @@
+import Hero from "@/components/Hero/Hero";
+import HomeItem from "@/components/HomeItem/HomeItem";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,10 +7,15 @@ export const metadata: Metadata = {
   description: "HomePage dagi products",
 };
 
-export default function Home() {
+export default async function Home() {
+  const data = await fetch("https://dummyjson.com/products");
+  const products = await data.json();
+  console.log(products);
+
   return (
     <div>
-      <h2>Hello world!</h2>
+      <Hero/>
+      <HomeItem data={products.products} />
     </div>
   );
 }

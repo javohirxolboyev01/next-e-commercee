@@ -7,7 +7,6 @@ import {
   StarIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
-import { RestOutlined } from "@ant-design/icons";
 
 interface Props {
   data: IRecipe[];
@@ -17,10 +16,13 @@ const RecipesItem: FC<Props> = ({ data }) => {
   return (
     <div className="w-full bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 mb-10 text-center flex items-center justify-center gap-3">
-          <RestOutlined className="text-4xl text-black" />
-          Retseptlar Menyusi
-        </h1>
+        <div className="flex items-center justify-center mb-10">
+          <div className="w-full max-w-[150px] h-[1px] bg-gray-300" />
+          <h1 className="px-4 text-3xl font-bold text-gray-900 text-center whitespace-nowrap">
+            Retseptlar Menyusi
+          </h1>
+          <div className="w-full max-w-[150px] h-[1px] bg-gray-300" />
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
           {data.map((item) => (
