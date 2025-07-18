@@ -1,6 +1,6 @@
 import { IProduct } from "@/types";
 import React, { FC } from "react";
-import { ShoppingCartIcon} from "@heroicons/react/24/solid";
+import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 
 interface Props {
   data: IProduct[];
@@ -9,42 +9,37 @@ interface Props {
 const HomeItem: FC<Props> = ({ data }) => {
   return (
     <div className="mx-auto max-w-7xl px-2 sm:px-4 md:px-6">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-5">
         {data.slice(5, 15).map((item) => (
           <div
             key={item.id}
-            className="relative rounded-xl overflow-hidden bg-white shadow transition-transform duration-300 hover:scale-[1.02] hover:shadow-md min-h-[330px] flex flex-col"
+            className="group relative rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition duration-300 flex flex-col"
           >
-            <div className="relative overflow-hidden h-[170px]">
+            <div className="relative bg-gray-100 h-[240px] sm:h-[260px] md:h-[280px] overflow-hidden">
               <img
                 src={item.thumbnail}
                 alt={item.title}
-                width={300}
-                height={300}
-                className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
+                className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </div>
 
-            <div className="p-2 flex-1 flex flex-col justify-between space-y-1">
+            <div className="p-3 flex flex-col flex-1 justify-between">
               <div>
-                <h2 className="font-medium text-sm line-clamp-2">
+                <h2 className="text-sm font-semibold text-gray-900 line-clamp-1">
                   {item.title}
                 </h2>
-                <p className="text-gray-500 text-xs line-clamp-2">
-                  {item.description}
-                </p>
               </div>
 
-              <div className="flex justify-between items-center pt-1">
-                <span className="text-red-600 font-semibold text-sm">
+              <div className="mt-2 flex items-center justify-between">
+                <span className="text-[15px] font-semibold text-black">
                   ${item.price}
                 </span>
+
+                <button className="bg-gray-200 hover:bg-gray-300 transition p-1.5 rounded-full">
+                  <ShoppingCartIcon className="w-5 h-5 text-black" />
+                </button>
               </div>
             </div>
-
-            <button className="absolute bottom-2 right-2 bg-gray-200 hover:bg-gray-300 transition p-2 rounded-full">
-              <ShoppingCartIcon className="w-5 h-5 text-black" />
-            </button>
           </div>
         ))}
       </div>
