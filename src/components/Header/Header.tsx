@@ -9,8 +9,7 @@ const Header = () => {
 
   return (
     <header className="w-full border-b border-gray-200 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-       
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between flex-wrap gap-y-2">
         <div className="flex items-center space-x-6">
           <Link
             href="/"
@@ -19,7 +18,6 @@ const Header = () => {
             Bazarli<span className="text-red-500 animate-pulse">24</span>
           </Link>
 
-         
           <nav className="hidden md:flex space-x-4">
             <Link
               href="/"
@@ -72,7 +70,6 @@ const Header = () => {
           </nav>
         </div>
 
-       
         <div className="hidden md:block flex-1 mx-6">
           <input
             type="text"
@@ -81,19 +78,20 @@ const Header = () => {
           />
         </div>
 
-        
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 ml-auto">
           <Link href="/wishlist" className="relative hover:text-black">
             <HeartIcon className="h-6 w-6 text-gray-600 hover:text-black" />
           </Link>
           <Link href="/cart" className="relative hover:text-black">
             <ShoppingCartIcon className="h-6 w-6 text-gray-600 hover:text-black" />
           </Link>
-          <Link href={"/signin"}>
-            <button className="text-gray-600 hover:text-black">Sign In</button>
+          <Link href="/signin">
+            <button className="text-gray-600 hover:text-black text-sm">
+              Sign In
+            </button>
           </Link>
-          <Link href={"/signup"}>
-            <button className="hidden md:inline-block px-4 py-1.5 rounded-md bg-black text-white hover:bg-gray-800">
+          <Link href="/signup">
+            <button className="hidden md:inline-block px-4 py-1.5 rounded-md bg-black text-white hover:bg-gray-800 text-sm">
               Sign Up
             </button>
           </Link>
