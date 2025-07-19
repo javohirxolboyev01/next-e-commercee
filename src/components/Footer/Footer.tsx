@@ -37,8 +37,8 @@ const Footer = () => {
         <div className="flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-semibold text-black mb-1">Contact</h3>
-            <p className="text-sm">Email: support@bazarli24.com</p>
-            <p className="text-sm">Phone: +998 90 123 45 67</p>
+            <p className="text-sm">Email: allproduct@bazarli24.com</p>
+            <p className="text-sm">Phone: +998 77 254 09 45</p>
           </div>
           <p className="text-xs text-gray-400 mt-6">
             &copy; {new Date().getFullYear()} Bazarli24. All rights reserved.

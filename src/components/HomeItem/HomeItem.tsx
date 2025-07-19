@@ -1,19 +1,25 @@
+"use client";
+
 import { IProduct } from "@/types";
 import React, { FC } from "react";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
+import { useRouter } from "next/navigation";
 
 interface Props {
   data: IProduct[];
 }
 
 const HomeItem: FC<Props> = ({ data }) => {
+  const router = useRouter();
+
   return (
     <div className="mx-auto max-w-7xl px-2 sm:px-4 md:px-6">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-5">
         {data.slice(5, 15).map((item) => (
           <div
             key={item.id}
-            className="group relative rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition duration-300 flex flex-col"
+            className="group relative rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition duration-300 flex flex-col cursor-pointer"
+            onClick={() => router.push(`/products/${item.id}`)} 
           >
             <div className="relative bg-gray-100 h-[240px] sm:h-[260px] md:h-[280px] overflow-hidden">
               <img
@@ -35,7 +41,10 @@ const HomeItem: FC<Props> = ({ data }) => {
                   ${item.price}
                 </span>
 
-                <button className="bg-gray-200 hover:bg-gray-300 transition p-1.5 rounded-full">
+                <button
+                  className="bg-gray-200 hover:bg-gray-300 transition p-1.5 rounded-full"
+                  onClick={(e) => e.stopPropagation()} 
+                >
                   <ShoppingCartIcon className="w-5 h-5 text-black" />
                 </button>
               </div>

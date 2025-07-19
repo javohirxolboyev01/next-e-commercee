@@ -1,3 +1,5 @@
+"use client";
+
 import { IRecipe } from "@/types";
 import React, { FC } from "react";
 import {
@@ -7,12 +9,15 @@ import {
   StarIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
 
 interface Props {
   data: IRecipe[];
 }
 
 const RecipesItem: FC<Props> = ({ data }) => {
+  const router = useRouter();
+
   return (
     <div className="w-full bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -30,7 +35,10 @@ const RecipesItem: FC<Props> = ({ data }) => {
               key={item.id}
               className="bg-white rounded-xl shadow-sm hover:shadow-lg transition duration-300 overflow-hidden flex flex-col"
             >
-              <div className="w-full h-48 sm:h-52 md:h-56 lg:h-60 xl:h-64 relative">
+              <div
+                className="w-full h-48 sm:h-52 md:h-56 lg:h-60 xl:h-64 relative cursor-pointer"
+                onClick={() => router.push(`/recipes/${item.id}`)}
+              >
                 <img
                   src={item.image}
                   alt={item.name}
@@ -39,7 +47,10 @@ const RecipesItem: FC<Props> = ({ data }) => {
               </div>
 
               <div className="p-4 flex flex-col flex-1">
-                <h2 className="text-lg font-semibold text-gray-800 mb-2 line-clamp-2">
+                <h2
+                  className="text-lg font-semibold text-gray-800 mb-2 line-clamp-2 cursor-pointer hover:text-blue-600 transition"
+                  onClick={() => router.push(`/recipes/${item.id}`)}
+                >
                   {item.name}
                 </h2>
 
@@ -69,7 +80,10 @@ const RecipesItem: FC<Props> = ({ data }) => {
                   </div>
                 </div>
 
-                <button className="mt-4 bg-black text-white text-sm font-semibold py-2 rounded-full shadow hover:opacity-90 transition duration-200">
+                <button
+                  onClick={() => router.push(`/recipes/${item.id}`)}
+                  className="mt-4 bg-black text-white text-sm font-semibold py-2 rounded-full shadow hover:opacity-90 transition duration-200"
+                >
                   Retseptni ko‘rish
                 </button>
               </div>

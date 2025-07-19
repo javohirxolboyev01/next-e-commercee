@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero/Hero";
 import HomeItem from "@/components/HomeItem/HomeItem";
+// import ProductItem from "@/components/ProductItem/ProductItem";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,14 +9,15 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const data = await fetch("https://dummyjson.com/products");
+  const data = await fetch(`https://dummyjson.com/products`);
   const products = await data.json();
   console.log(products);
 
   return (
     <div>
-      <Hero/>
+      <Hero />
       <HomeItem data={products.products} />
+      {/* <ProductItem data={products?.products} /> */}
     </div>
   );
 }

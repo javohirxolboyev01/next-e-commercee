@@ -10,6 +10,7 @@ export interface IProduct {
   brand: string;
   rating:number
   description:string
+  images:string
 }
 export interface ICart {
   id: number;

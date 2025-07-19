@@ -37,16 +37,7 @@ const Header = () => {
             >
               Products
             </Link>
-            <Link
-              href="/carts"
-              className={`hover:text-black ${
-                pathname === "/carts"
-                  ? "text-black font-semibold"
-                  : "text-gray-600"
-              }`}
-            >
-              Carts
-            </Link>
+       
             <Link
               href="/recipes"
               className={`hover:text-black ${

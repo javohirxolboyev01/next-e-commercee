@@ -29,14 +29,14 @@ const slides = [
 
 const HeroSwiper = () => {
   return (
-    <div className="w-full max-w-7xl mx-auto mb-8">
+    <div className="w-full max-w-7xl mx-auto mt-[10px] mb-8">
       <Swiper
         modules={[Autoplay, Pagination]}
         autoplay={{ delay: 3000 }}
         pagination={{ clickable: true }}
         loop={true}
         spaceBetween={20}
-        className="overflow-hidden rounded-b-xl"
+        className="overflow-hidden rounded-xl "
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
