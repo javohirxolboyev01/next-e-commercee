@@ -8,9 +8,9 @@ export interface IProduct {
   discountPercentage: number;
   discountedPrice: number;
   brand: string;
-  rating:number
-  description:string
-  images:string
+  rating: number;
+  description: string;
+  images: string;
 }
 export interface ICart {
   id: number;
@@ -32,6 +32,7 @@ export interface IRecipe {
   cookTimeMinutes: number;
   rating: number;
   servings: number;
+  slug: string;
 }
 
 export type User = {
