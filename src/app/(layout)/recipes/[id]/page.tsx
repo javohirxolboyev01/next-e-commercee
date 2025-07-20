@@ -2,13 +2,16 @@ import RecipesDetail from "@/components/RecipesDetail/RecipesDetail";
 import { Metadata } from "next";
 import React from "react";
 
-export const metadata: Metadata = {
-  title: "Recipes | Bazarli24",
-  description: "O'zbekistondagi birinchi raqamli online market",
-};
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  return {
+    title: `Recipe ${id} | Bazarli24`,
+    description: "O'zbekistondagi birinchi raqamli online market",
+  };
+}
 
-const RecipesPage = async ({ params }: { params: { id: string } }) => {
-  const id = params.id;
+const RecipesPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = await params;
   const res = await fetch(`https://dummyjson.com/recipes/${id}`);
   const recipe = await res.json();
 
