@@ -3,12 +3,14 @@
 import { ICart, IProduct } from "@/types";
 import React from "react";
 import { HeartIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
 
 interface Props {
   data: ICart[];
 }
 
 const CartItem = ({ data }: Props) => {
+  const router = useRouter();
   return (
     <div className="max-w-6xl mx-auto px-4 py-10 space-y-12">
       {data.map((cart) => (
@@ -17,7 +19,8 @@ const CartItem = ({ data }: Props) => {
             {cart.products.map((product: IProduct) => (
               <div
                 key={product.id}
-                className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-4 flex flex-col justify-between"
+                className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-4 flex flex-col justify-between cursor-pointer"
+                onClick={() => router.push(`/products/${product.id}`)}
               >
                 <div className="relative group">
                   <img
